@@ -21,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/nick3point5/indexing/issues"
   },
-  "homepage": "https://github.com/nick3point5/indexing#readme"
+  "homepage": "https://github.com/nick3point5/indexing#readme",
+	"bin": "./index.js"
 }

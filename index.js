@@ -1,6 +1,4 @@
-/**
- * generate index files using file names
- */
+#!/usr/bin/env node
 
 const fs = require('fs')
 
