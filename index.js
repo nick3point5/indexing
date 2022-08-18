@@ -93,3 +93,4 @@ for (let i = 0; i < folders.length; i++) {
 		console.log(`"${folder}" path does not exist`)
 	}
 }
+console.log('Done📁')
