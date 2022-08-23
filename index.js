@@ -29,13 +29,12 @@ function isFolder(name) {
 	return true
 }
 
-function makeIndex(folder, recursive = false) {
+function makeIndex(folder, recursive = false, isTypeScript = false) {
 	const collator = new Intl.Collator(undefined, {
 		numeric: true,
 		sensitivity: 'base',
 	})
 
-	let isTypeScript = false
 	let filesText = ''
 	let folderText = ''
 	let text = ''
@@ -59,7 +58,7 @@ function makeIndex(folder, recursive = false) {
 		} else if (isFolder(name)) {
 			folderText += `export * from './${name}'\n`
 			if (recursive) {
-				makeIndex(path, true)
+				makeIndex(path, true, isTypeScript)
 			}
 		}
 	}
