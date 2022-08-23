@@ -13,15 +13,16 @@ const exportableExtensions = ['.tsx', '.ts', '.jsx', '.js']
 const regexExtensionsString = `(\\${exportableExtensions.join('|\\')})$`
 const ignoreIndexes = new RegExp(`(indexer|index)${regexExtensionsString}`, 'g')
 const regexExtensions = new RegExp(`${regexExtensionsString}`, 'g')
-
+console.log(regexExtensionsString)
 const arguments = process.argv.slice(2)
 const recursiveFlagIndex = arguments.indexOf('-r')
 const isRecursive = recursiveFlagIndex > -1
 let folders = []
 
 function isExportable(name) {
-	if (name.match(regexExtensions)) return true
-	return false
+	if (name.match(/\./g).length > 1) return false
+	if (!name.match(regexExtensions)) return false
+	return true
 }
 
 function isFolder(name) {
