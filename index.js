@@ -58,7 +58,7 @@ function makeIndex(folder, recursive = false, isTypeScript = false) {
 		} else if (isFolder(name)) {
 			folderText += `export * from './${name}'\n`
 			if (recursive) {
-				makeIndex(path, true, isTypeScript)
+				isTypeScript = makeIndex(path, true, isTypeScript)
 			}
 		}
 	}
@@ -69,13 +69,15 @@ function makeIndex(folder, recursive = false, isTypeScript = false) {
 		text = `${filesText}\n${folderText}`
 	}
 
-	if (!text) return
+	if (!text) return isTypeScript
 
 	if (isTypeScript) {
 		writeFile(`${folder}/index.ts`, text)
 	} else {
 		writeFile(`${folder}/index.js`, text)
 	}
+
+	return isTypeScript
 }
 
 if (isRecursive) {
