@@ -13,7 +13,6 @@ const exportableExtensions = ['.tsx', '.ts', '.jsx', '.js']
 const regexExtensionsString = `(\\${exportableExtensions.join('|\\')})$`
 const ignoreIndexes = new RegExp(`(indexer|index)${regexExtensionsString}`, 'g')
 const regexExtensions = new RegExp(`${regexExtensionsString}`, 'g')
-console.log(regexExtensionsString)
 const arguments = process.argv.slice(2)
 const recursiveFlagIndex = arguments.indexOf('-r')
 const isRecursive = recursiveFlagIndex > -1
