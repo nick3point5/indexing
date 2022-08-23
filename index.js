@@ -20,7 +20,7 @@ const isRecursive = recursiveFlagIndex > -1
 let folders = []
 
 function isExportable(name) {
-	if (name.match(/\./g).length > 1) return false
+	if (name.match(/\./g)?.length > 1) return false
 	if (!name.match(regexExtensions)) return false
 	return true
 }
